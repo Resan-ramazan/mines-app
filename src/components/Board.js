@@ -151,7 +151,8 @@ export default function Board() {
             _board[rowIndex][cellIndex].isClicked = true;
             _board[rowIndex][cellIndex].isFlagged = true;
             setFlag(flag + 1);
-        } else {
+        } else if (rightClick) return
+        else {
             _board[rowIndex][cellIndex].isClicked = true;
             _board[rowIndex][cellIndex].neighbourBombs = GetNeighbours(
                 rowIndex,
@@ -160,7 +161,7 @@ export default function Board() {
         }
         if (flag === BOMB_COUNT) {
             const bombsArray = GetBombsArray(_board);
-            const flagsArray = GetBombsArray(_board);
+            const flagsArray = GetFlagsArray(_board);
             if (JSON.stringify(bombsArray) === JSON.stringify(flagsArray)) {
                 setGameOver(true);
                 setFlag(0);
