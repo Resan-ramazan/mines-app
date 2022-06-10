@@ -195,7 +195,7 @@ export default function Board() {
                                 }}
                             >
                                 {cell.isClicked && cell.isFlagged && `🚩`}
-                                {cell.isBomb && !cell.isFlagged && `💣`}
+                                {cell.isClicked && cell.isBomb && !cell.isFlagged && `💣`}
                                 {cell.isClicked &&
                                     !cell.isBomb &&
                                     !cell.isFlagged &&
